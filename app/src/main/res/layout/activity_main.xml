@@ -20,6 +20,8 @@
         android:layout_height="wrap_content"
         android:onClick="Click me"
         android:text="Click me"
+        android:textSize="10dp"
+        android:textColor="#00FF00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

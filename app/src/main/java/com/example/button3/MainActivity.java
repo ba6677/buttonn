@@ -1,5 +1,6 @@
 package com.example.button3;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private void updateClickNumberText() {
         if (clickCount < 6) {
             clickNumberText.setText("This is a click number: " + clickCount);
+            clickNumberText.setTextSize(10);
         } else {
             clickNumberText.setText("Enough to click. Go to new start!");
+            clickNumberText.setTextColor(Color.RED);
             clickCount = 0;
         }
     }
