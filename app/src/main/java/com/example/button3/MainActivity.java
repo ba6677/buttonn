@@ -1,31 +1,40 @@
 package com.example.button3;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import java.util.Scanner;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    public static Scanner input=new Scanner(System.in);
-    Button button;
-    int x;
+
+    private Button clickButton;
+    private TextView clickNumberText;
+    private int clickCount = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn=findViewById(R.id.button);
 
-    }
-    public void Click(View view) {
-        x=input.nextInt();
-        x++;
-        button.setText("This is a click number:" + x);
-    }
-    if(x=6){
-        button.setText("Enough to click.Go to new start");
+        clickButton = findViewById(R.id.clickButton);
+        clickNumberText = findViewById(R.id.clickNumberText);
+        clickButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickCount++;
+                updateClickNumberText();
+            }
+        });
     }
 
+    private void updateClickNumberText() {
+        if (clickCount < 6) {
+            clickNumberText.setText("This is a click number: " + clickCount);
+        } else {
+            clickNumberText.setText("Enough to click. Go to new start!");
+            clickCount = 0;
+        }
+    }
 }
